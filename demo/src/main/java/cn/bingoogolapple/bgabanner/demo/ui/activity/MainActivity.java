@@ -12,6 +12,7 @@ import com.bumptech.glide.request.RequestOptions;
 
 import cn.bingoogolapple.bgabanner.BGABanner;
 import cn.bingoogolapple.bgabanner.demo.App;
+import cn.bingoogolapple.bgabanner.demo.DataUtils;
 import cn.bingoogolapple.bgabanner.demo.R;
 import cn.bingoogolapple.bgabanner.demo.engine.Engine;
 import cn.bingoogolapple.bgabanner.demo.model.BannerModel;
@@ -97,10 +98,10 @@ public class MainActivity extends AppCompatActivity implements BGABanner.Delegat
                  * 设置是否开启自动轮播，需要在 setData 方法之前调用，并且调了该方法后必须再调用一次 setData 方法
                  * 例如根据图片当图片数量大于 1 时开启自动轮播，等于 1 时不开启自动轮播
                  */
-                banner.setAutoPlayAble(bannerModel.imgs.size() > 1);
+                banner.setAutoPlayAble((bannerModel==null? DataUtils.getImgs():bannerModel.imgs).size() > 1);
 
                 banner.setAdapter(MainActivity.this);
-                banner.setData(bannerModel.imgs, bannerModel.tips);
+                banner.setData(bannerModel==null? DataUtils.getImgs():bannerModel.imgs, bannerModel==null?DataUtils.getTips():bannerModel.tips);
             }
 
             @Override

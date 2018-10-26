@@ -11,6 +11,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import cn.bingoogolapple.bgabanner.BGABanner;
 import cn.bingoogolapple.bgabanner.demo.App;
+import cn.bingoogolapple.bgabanner.demo.DataUtils;
 import cn.bingoogolapple.bgabanner.demo.R;
 import cn.bingoogolapple.bgabanner.demo.model.BannerModel;
 import retrofit2.Call;
@@ -50,8 +51,8 @@ public class FrescoDemoActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<BannerModel> call, Response<BannerModel> response) {
                 BannerModel bannerModel = response.body();
-//                mContentBanner.setData(R.layout.item_fresco, bannerModel.imgs, bannerModel.tips);
-                mContentBanner.setData(R.layout.item_fresco, bannerModel.imgs, null);
+               mContentBanner.setData(R.layout.item_fresco, bannerModel==null?DataUtils.getImgs():bannerModel.imgs, bannerModel==null?DataUtils.getTips():bannerModel.tips);
+                mContentBanner.setData(R.layout.item_fresco, bannerModel==null?DataUtils.getImgs():bannerModel.imgs, bannerModel==null?DataUtils.getTips():bannerModel.tips);
             }
 
             @Override

@@ -13,7 +13,7 @@
         style="@style/BannerDefaultStyle"
         android:layout_height="160dp"
         android:layout_margin="@dimen/size_level5"
-        app:banner_contentBottomMargin="40dp"
+        app:banner_contentBottomMargin="0dp"
         app:banner_indicatorGravity="bottom|center_horizontal"
         app:banner_isNeedShowIndicatorOnOnlyOnePage="true"
         app:banner_isNumberIndicator="false"

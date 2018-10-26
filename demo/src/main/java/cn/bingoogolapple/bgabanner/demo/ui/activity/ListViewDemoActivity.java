@@ -17,6 +17,7 @@ import cn.bingoogolapple.baseadapter.BGAAdapterViewAdapter;
 import cn.bingoogolapple.baseadapter.BGAViewHolderHelper;
 import cn.bingoogolapple.bgabanner.BGABanner;
 import cn.bingoogolapple.bgabanner.demo.App;
+import cn.bingoogolapple.bgabanner.demo.DataUtils;
 import cn.bingoogolapple.bgabanner.demo.R;
 import cn.bingoogolapple.bgabanner.demo.engine.Engine;
 import cn.bingoogolapple.bgabanner.demo.model.BannerModel;
@@ -90,7 +91,7 @@ public class ListViewDemoActivity extends AppCompatActivity implements BGABanner
             @Override
             public void onResponse(Call<BannerModel> call, Response<BannerModel> response) {
                 BannerModel bannerModel = response.body();
-                mBanner.setData(bannerModel.imgs, bannerModel.tips);
+                mBanner.setData(bannerModel==null? DataUtils.getImgs():bannerModel.imgs, bannerModel==null?DataUtils.getTips():bannerModel.tips);
             }
 
             @Override
